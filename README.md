@@ -29,11 +29,11 @@ according to your environment:
 <property name="deploy.dir" value="/path/to/tomcat/webapps"/>
 <!-- /EDIT THIS PART -->
 ```
-4. Open an Ant view and drag the build.xml file and run the "deploy" target.
+4. Open an Ant view, drag the build.xml file and run the "deploy" target.
 
 5. Start Tomcat.
 
-6. Point your browser to http://localhost:8080/flex-vectors/
+6. Point your browser to [http://localhost:8080/flex-vectors/].
 
 What to do next?
 ----------------
