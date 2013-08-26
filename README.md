@@ -33,7 +33,7 @@ according to your environment:
 
 5. Start Tomcat.
 
-6. Point your browser to: http://localhost:8080/flex-vectors/.
+6. Point your browser to: <tt>http://localhost:8080/flex-vectors/</tt>.
 
 What to do next?
 ----------------
