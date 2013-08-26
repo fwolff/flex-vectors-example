@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx">
+	
+    <fx:Script>
+        <![CDATA[
+			import flash.net.registerClassAlias;
+			
+			import mx.controls.Alert;
+			import mx.utils.ObjectUtil;
+			
+			import org.granite.example.vectors.flex.VectorBean;
+
+			registerClassAlias("String", String);
+			registerClassAlias("Date", Date);
+        ]]>    
+    </fx:Script>
+
+	<fx:Declarations>
+	    <mx:RemoteObject id="vectorService" showBusyCursor="true" destination="vectorService"
+            fault="Alert.show(event.fault.faultString), 'Error'">
+            <mx:method name="getVectorBean" result="vectorBeanContent.text = ObjectUtil.toString(event.result)"/>
+            <mx:method name="getVectorInt" result="vectorBeanContent.text = ObjectUtil.toString(event.result)"/>
+            <mx:method name="getVectorString" result="vectorBeanContent.text = ObjectUtil.toString(event.result)"/>
+        </mx:RemoteObject>
+	</fx:Declarations>
+
+	<s:Panel title="Vectors Example" width="100%" height="100%">
+		<s:layout>
+            <s:VerticalLayout paddingLeft="8" paddingRight="8" paddingTop="8" paddingBottom="8" gap="8"/>
+        </s:layout>
+
+		<s:Group>
+			<s:layout>
+	            <s:HorizontalLayout gap="8"/>
+	        </s:layout>
+
+			<s:Button label="getVectorBean()"
+				click="vectorService.getVectorBean()"/>
+			<s:Button label="setVectorBean(...)"
+				click="vectorService.setVectorBean(new VectorBean(true)); vectorBeanContent.text = ''"/>
+			<s:Button label="getVectorInt()"
+				click="vectorService.getVectorInt()"/>
+			<s:Button label="setVectorInt(...)"
+				click="vectorService.setVectorInt(new &lt;int>[7, 6, 5, 4, 3, 2, 1]); vectorBeanContent.text = ''"/>
+			<s:Button label="getVectorString()"
+				click="vectorService.getVectorString()"/>
+			<s:Button label="setVectorString(...)"
+				click="vectorService.setVectorString(new &lt;String>['fed', 'cad', null]); vectorBeanContent.text = ''"/>
+			<s:Button label="reset()"
+				click="vectorService.reset(); vectorBeanContent.text = ''"/>
+		</s:Group>
+
+		<s:TextArea id="vectorBeanContent" width="100%" height="100%"/>
+    </s:Panel>
+	
+</s:Application>
