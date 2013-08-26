@@ -14,7 +14,9 @@ How to build the project?
 
 1. Clone the project (or download it):
 
+````bash
 $ git clone https://github.com/fwolff/flex-vectors-example.git
+````
 
 2. Under Eclipse, import it as an existing application.
 
