@@ -2,22 +2,22 @@
 
 <project name="flex-vectors-example" default="deploy">
 
-	<!-- EDIT THIS PART -->
-    <property name="FLEX_HOME" value="/Users/franckwolff/Developments/flexsdk/flex_sdk_4.10.0"/>
-    <property name="deploy.dir" value="/Users/franckwolff/Desktop/apache-tomcat-7.0.34/webapps"/>
-	<!-- /EDIT THIS PART -->
-	
-	<property name="webapp.name" value="flex-vectors"/>
+    <!-- EDIT THIS PART -->
+    <property name="FLEX_HOME" value="/path/to/flex_sdk_4.10.0"/>
+    <property name="deploy.dir" value="/path/to/tomcat/webapps"/>
+    <!-- /EDIT THIS PART -->
+    
+    <property name="webapp.name" value="flex-vectors"/>
 
-	<target name="build.flex">
-		<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
-		
-		<mkdir dir="bin-flex"/>
-		<mxmlc
+    <target name="build.flex">
+        <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+        
+        <mkdir dir="bin-flex"/>
+        <mxmlc
             file="flex/FlexVectors.mxml"
             output="bin-flex/FlexVectors.swf"
             context-root="/${webapp.name}"
-			services="services-config.xml"
+            services="services-config.xml"
             keep-generated-actionscript="false"
             debug="true"
             incremental="true"
@@ -27,21 +27,21 @@
             <load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
         </mxmlc>
 
-	</target>
-	
-	<target name="deploy" depends="build.flex">
-		<war destfile="${deploy.dir}/${webapp.name}.war" webxml="web.xml">
-			<lib dir=".">
-				<include name="granite.jar"/>
-			</lib>
-			<classes dir="bin"/>
-			<fileset dir="bin-flex">
-				<include name="FlexVectors.swf"/>
-			</fileset>
-			<zipfileset dir="." prefix="WEB-INF/flex">
-				<include name="services-config.xml"/>
-			</zipfileset>
-		</war>
-	</target>
+    </target>
+    
+    <target name="deploy" depends="build.flex">
+        <war destfile="${deploy.dir}/${webapp.name}.war" webxml="web.xml">
+            <lib dir=".">
+                <include name="granite.jar"/>
+            </lib>
+            <classes dir="bin"/>
+            <fileset dir="bin-flex">
+                <include name="FlexVectors.swf"/>
+            </fileset>
+            <zipfileset dir="." prefix="WEB-INF/flex">
+                <include name="services-config.xml"/>
+            </zipfileset>
+        </war>
+    </target>
 
 </project>

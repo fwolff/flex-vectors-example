@@ -13,8 +13,16 @@
 			
 			import org.granite.example.vectors.flex.VectorBean;
 
+			///////////////////////////////////////////////////////////////////
+			// Make sure to register aliases for simple AS3 types: they must
+			// match settings in the AMFBasicVectorObjectAliaser class.
+			// See: https://github.com/graniteds/graniteds/blob/master/core/
+			// org/granite/messaging/amf/types/AMFBasicVectorObjectAliaser.java
+
 			registerClassAlias("String", String);
 			registerClassAlias("Date", Date);
+			registerClassAlias("XML", XML);
+			registerClassAlias("Object", Object);
         ]]>    
     </fx:Script>
 
