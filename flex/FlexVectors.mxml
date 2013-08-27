@@ -21,8 +21,6 @@
 
 			registerClassAlias("String", String);
 			registerClassAlias("Date", Date);
-			registerClassAlias("XML", XML);
-			registerClassAlias("Object", Object);
         ]]>    
     </fx:Script>
 
