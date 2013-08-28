@@ -38,7 +38,7 @@ according to your environment:
 What to do next?
 ----------------
 
-Have a look at the source code, in the java and flex directory, you should
+Have a look at the source code, in the java and flex directories, you should
 understand pretty quickly how it works.
 
  
